@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>샵팬픽 카드 테스트</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <!-- 부드러운 그라디언트 + blur 배경 -->
+  <div class="background"></div>
+
+  <!-- 카드 전체를 3D로 뒤집을 수 있게 하는 컨테이너 -->
+  <div class="card-container">
+    <!-- 실제로 회전(rotate)할 카드 영역 -->
+    <div class="card">
+      <!-- (1) 카드 앞면 -->
+      <div class="card__front">
+        <div class="flicker-container">
+          <div class="info_container">
+            <div class="user_id">원현우 / 2024.12.30</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- (2) 카드 뒷면 -->
+      <div class="card__back">
+        <h2>오늘의 운세는...</h2>
+        <p>"현우야~ 오늘은 바나나 껍질을 조심해!"</p>
+      </div>
+    </div>
+  </div>
+</body>
+
+<script>
+  setTimeout(() => {
+    const flicker = document.querySelector(".flicker-container");
+    const info = document.querySelector(".info_container");
+
+    // (5초 뒤) 책 이미지 변경, 정보 표시
+    flicker.style.backgroundImage = "url('./img/크리스마스테스트.png')";
+    info.style.display = "block";
+  }, 5000);
+
+  setTimeout(() => {
+    const cardFront = document.querySelector(".card__front");
+    cardFront.classList.add("show");
+  }, 5400)
+
+  const card = document.querySelector(".card");
+  card.addEventListener("click", () => {
+    card.classList.toggle("is-flipped");
+  });
+</script>
+
+</html>
